@@ -18,7 +18,7 @@ ipcRenderer.on("login-failed", (event, args, payload) => {
         return;
     }
     sessionStorage.setItem('secert_token', Buffer.from(payload).toString('base64'))
-    window.location.href = './dashboard.html'
+    window.location.href = './dashboard/list.html'
 });
 
 ipcRenderer.on("dashboard-senddata", (event, args) => {
