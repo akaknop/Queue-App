@@ -16,50 +16,37 @@
     <div class="container py-4">
         <div class="row">
             <div class="col-12">
-                <h1 class="text-center mb-4">Admin Queue Dashboard</h1>
+                <h1 class="text-center mb-4">ระบบคิว</h1>
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>Request ID</th>
-                                <th>Requester</th>
-                                <th>Request Type</th>
-                                <th>Request Date</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>ชื่อผู้ป่วย</th>
+                                <th>ลำดับคิว</th>
+                                <th>สถานะ</th>
+                                <th>แผนก</th>
+                                <th>วันที่จอง</th>
+                                <th>ดูข้อมูล</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>001</td>
-                                <td>John Doe</td>
-                                <td>New Account</td>
-                                <td>2023-02-15</td>
-                                <td><span class="badge bg-primary">Pending</span></td>
-                                <td><a href="#" class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</a></td>
-                            </tr>
-                            <tr>
-                                <td>002</td>
-                                <td>Jane Smith</td>
-                                <td>Report a Bug</td>
-                                <td>2023-02-16</td>
-                                <td><span class="badge bg-warning">In Progress</span></td>
-                                <td><a href="#" class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</a></td>
-                            </tr>
-                            <tr>
-                                <td>003</td>
-                                <td>Mike Johnson</td>
-                                <td>Change Password</td>
-                                <td>2023-02-17</td>
-                                <td><span class="badge bg-success">Completed</span></td>
-                                <td><a href="#" class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</a></td>
-                            </tr>
+                        <tbody id="my-tbody">
+                            
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        refreshDate = function() {
+            window.electron.refreshdata();  
+        }
+        refreshDate()
+        setInterval(() => {
+            refreshDate();
+        }, 5000)
+
+      </script>
 </body>
 
 </html>

@@ -9,28 +9,43 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
+
+
 const createWindow = () => {
-  // Create the browser window.
+  var splash = new BrowserWindow({
+    width: 300,
+    height: 450,
+    autoHideMenuBar: true,
+    transparent: true,
+    icon: path.join(__dirname, 'icon.png')
+  });
+  splash.setMenuBarVisibility(false)
+  splash.loadFile(path.join(__dirname, 'splash.html'));
+
   const mainWindow = new BrowserWindow({
     width: 1280,
     height: 720,
+    show: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      // devTools: true,
+      // devTools: false,
     },
     icon: path.join(__dirname, 'icon.png')
   });
+
+  setTimeout(function () { // Loading Screen
+    splash.close();
+    mainWindow.show();
+  }, 5000);
+
   // mainWindow.setMenu(null)
-  // and load the index.html of the app.
+
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
 };
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -62,6 +77,16 @@ ipcMain.on('user:login', (event, data) => {
     }
   }, function (error, response) {
     if (error) throw error;
-    event.reply('login-failed', response.body);
+    event.reply('login-failed', response.body, btoa(data.username + ':' + data.password));
+  })
+});
+
+ipcMain.on('dashboard:getdata', (event, data) => {
+  request({
+    'method': 'GET',
+    'url': 'https://data.apprdev.tk/queue/DATA',
+  }, function (error, response) {
+    if (error) throw error;
+    event.reply('dashboard-senddata', response.body);
   })
 });
