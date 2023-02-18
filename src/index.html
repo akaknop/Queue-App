@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign In | Backend</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Include the Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/df82989633.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body class="bg-light">
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-6 col-lg-4">
+        <form class="p-4 p-md-5 border rounded-3 bg-white">
+          <h2 class="mb-4">ลงชื่อเข้าสู่ระบบ</h2>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="username" placeholder="Username" required>
+            <label for="username">Username / Email</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="password" placeholder="Password" required>
+            <label for="password">Password</label>
+            <div id="error-message"></div>
+          </div>
+          <input type="button" class="w-100 btn btn-lg btn-primary" id="login-button" value="เข้าสู่ระบบ">
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Include the Bootstrap JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+    document.querySelector("#login-button").addEventListener("click", () => {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      const data = {
+        username: username,
+        password: password,
+      };
+
+      window.electron.login(data);
+    })
+  </script>
+</body>
+
+</html>
