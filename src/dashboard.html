@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard | Backend</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-kl1jK5GdX9xcA3iP3qkCnvZUp/vMvFQKjz34x22I10WkgPT8Dv9Njh/iRrg7I1eW6Ug7VxpBnHmG7VU/aWmL8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/df82989633.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+
+<body>
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mb-4">Admin Queue Dashboard</h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Requester</th>
+                                <th>Request Type</th>
+                                <th>Request Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>John Doe</td>
+                                <td>New Account</td>
+                                <td>2023-02-15</td>
+                                <td><span class="badge bg-primary">Pending</span></td>
+                                <td><a href="#" class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</a></td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>Jane Smith</td>
+                                <td>Report a Bug</td>
+                                <td>2023-02-16</td>
+                                <td><span class="badge bg-warning">In Progress</span></td>
+                                <td><a href="#" class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</a></td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>Mike Johnson</td>
+                                <td>Change Password</td>
+                                <td>2023-02-17</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                                <td><a href="#" class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

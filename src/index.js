@@ -16,10 +16,11 @@ const createWindow = () => {
     height: 720,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      // devTools: true,
     },
     icon: path.join(__dirname, 'icon.png')
   });
-
+  // mainWindow.setMenu(null)
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 

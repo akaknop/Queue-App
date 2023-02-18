@@ -3,21 +3,22 @@
   "productName": "ระบบจัดการคิว",
   "version": "1.0.0",
   "main": "src/index.js",
+  "description": "ระบบจัดการคิว [หลังบ้าน]",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "echo \"No linting configured\"",
+    "build": "electron-builder build"
   },
   "keywords": [],
   "author": {
-    "name": "NONAMEnaaa",
-    "email": "47180141+akaknop@users.noreply.github.com"
+    "name": "APPR Dev"
   },
-  "license": "MIT",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
+    "path": "^0.12.7",
     "request": "^2.88.2"
   },
   "devDependencies": {
@@ -27,5 +28,13 @@
     "@electron-forge/maker-squirrel": "^6.0.5",
     "@electron-forge/maker-zip": "^6.0.5",
     "electron": "23.1.0"
+  },
+  "build": {
+    "copyright": "Copyright © 2023 APPR Dev",
+    "win": {
+      "target": [
+        "msi"
+      ]
+    }
   }
 }
