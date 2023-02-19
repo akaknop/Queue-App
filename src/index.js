@@ -90,3 +90,7 @@ ipcMain.on('dashboard:getdata', (event, data) => {
     event.reply('dashboard-senddata', response.body);
   })
 });
+
+ipcMain.on('dashboard:deletedata', (event, data) => {
+  console.log(data)
+})

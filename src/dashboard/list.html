@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard | Backend</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-kl1jK5GdX9xcA3iP3qkCnvZUp/vMvFQKjz34x22I10WkgPT8Dv9Njh/iRrg7I1eW6Ug7VxpBnHmG7VU/aWmL8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-kl1jK5GdX9xcA3iP3qkCnvZUp/vMvFQKjz34x22I10WkgPT8Dv9Njh/iRrg7I1eW6Ug7VxpBnHmG7VU/aWmL8Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://kit.fontawesome.com/df82989633.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/dashboard.css">
+    <!-- <link rel="stylesheet" href="./css/dashboard.css"> -->
 </head>
 
 <body>
@@ -27,26 +30,28 @@
                                 <th>แผนก</th>
                                 <th>วันที่จอง</th>
                                 <th>ดูข้อมูล</th>
+                                <th>ลบข้อมูล</th>
                             </tr>
                         </thead>
                         <tbody id="my-tbody">
-                            
+
                         </tbody>
                     </table>
                 </div>
             </div>
+
         </div>
     </div>
     <script type="text/javascript">
-        refreshDate = function() {
-            window.electron.refreshdata();  
+        refreshDate = function () {
+            window.electron.refreshdata();
         }
         refreshDate()
         setInterval(() => {
             refreshDate();
         }, 5000)
 
-      </script>
+    </script>
 </body>
 
 </html>

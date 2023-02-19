@@ -2,10 +2,12 @@
 // https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
 
 const { contextBridge, ipcRenderer } = require("electron");
+// const Swal = require('sweetalert2')
 
 contextBridge.exposeInMainWorld("electron", {
     login: (data) => ipcRenderer.send("user:login", data),
     refreshdata: (data) => ipcRenderer.send("dashboard:getdata", data),
+    deletedata: (data) => ipcRenderer.send("dashboard:deletedata", data),
 });
 
 ipcRenderer.on("login-failed", (event, args, payload) => {
@@ -45,6 +47,7 @@ ipcRenderer.on("dashboard-senddata", (event, args) => {
         const sector = document.createElement('td');
         const time = document.createElement('td');
         const view = document.createElement('td');
+        const deleteFunction = document.createElement('td');
 
         patient_name.textContent = item.patient_name
         queue_id.textContent = item.queue_id
@@ -60,6 +63,7 @@ ipcRenderer.on("dashboard-senddata", (event, args) => {
 
         time.textContent = `${day}/${month}/${year} ${hours}:${minutes} น.`;
         view.innerHTML = '<a href="#" class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</a>'
+        deleteFunction.innerHTML = `<a href="#" data-patientid="${item.patient_name}_${item.queue_id}" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i> Delete</a>`
 
         row.appendChild(patient_name);
         row.appendChild(queue_id);
@@ -67,11 +71,16 @@ ipcRenderer.on("dashboard-senddata", (event, args) => {
         row.appendChild(sector);
         row.appendChild(time);
         row.appendChild(view);
+        row.appendChild(deleteFunction);
 
         container.appendChild(row);
     })
 
 });
+
+ipcRenderer.on("dashboard-deletedata", (event, args) => {
+
+})
 
 getSectorLabel = function (sector) {
     if (sector == 'dentist') {
